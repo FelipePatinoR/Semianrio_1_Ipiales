@@ -1,0 +1,609 @@
+<!-- 
+    Nombre: Daniel Felipe Patiño Ruano
+    Codigo: 218036108
+ -->
+
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller 2</title>
+    <link rel="stylesheet" href="/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/mdb.min.js"></script>
+    <script src="/js/function.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Pagina Principal</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            Encuestas Disponibles
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="/encuesta.html">Encuesta de Satisfaccioin Aula de
+                                    infromatica 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/acercade.html">Acerca de</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+    </header>
+    <center>
+        <div id="titulo">
+            <!-- Logo Udenar con redireccion a pagina web Udenar -->
+            <a title="Universidad de Nariño" href="https://www.udenar.edu.co" target="_blank"><img
+                    src="https://www.udenar.edu.co/recursos/wp-content/uploads/2021/09/logo-udenar-negro.png"
+                    alt=" Universidad de Nariño" id="imginicio"></a>
+            <!-- Titulo y subtitulo -->
+            <h1>Encuesta de Satisfacción</h1>
+            <h3>Servicio de internet aula de informatica 3 <br> Universidad de Nariño - Sede Ipiales</h3>
+        </div>
+    </center>
+    <br>
+    <h5>( * ) Campos obligatorios</h5>
+    <form action="">
+        <div class="row">
+            <div class="col-md-6">
+                <center>
+                    <div id="inf_contacto">
+                        <h4 class="tit_seccion">Informacion de Contacto</h4>
+                        <!-- Codigo Estudiantil -->
+                        <label for="codigo" class="etiquetas">Codigo:*</label>
+                        <input type="number" id="codigo" class="inputs" required>
+                        <br>
+                        <!-- Nombres -->
+                        <label for="nombre" class="etiquetas">Nombres:*</label>
+                        <input type="text" id="nombre" class="inputs" required>
+                        <br>
+                        <!-- Apellidos -->
+                        <label for="apellido" class="etiquetas">Apellidos:*</label>
+                        <input type="text" id="apellido" class="inputs" required>
+                        <br>
+                        <!-- E-mail -->
+                        <label for="correo" class="etiquetas">Correo electronico:*</label>
+                        <input type="email" id="correo" class="inputs" required>
+                        <br>
+                        <!-- Telefono -->
+                        <label for="telefono" class="etiquetas">Telefono:*</label>
+                        <input type="number" id="telefono" class="inputs" required>
+                    </div>
+                </center>
+            </div>
+            <div class="col-md-6">
+                <center>
+                    <div id="inf_academica">
+                        <h4 class="tit_seccion">Informacion Academica</h4>
+                        <!-- Selecciona Fcultad -->
+                        <label for="facultad" class="etiquetas">Facultad:*</label>
+                        <select name="facultad" id="facultad" class="inputs" onchange="cambia_programa()" required>
+                            <option value="0" selected disabled>Seleccionar</option>
+                            <option value="1">FACEA - Facultad de Ciencias Economicas y Administrativas</option>
+                            <option value="2">FACING - Facultad de Ingenieria</option>
+                        </select>
+                        <div><br></div>
+                        <!-- Seleccion Programa -->
+                        <label for="programa" class="etiquetas">Programa:*</label>
+                        <select name="programa" id="programa" class="inputs" required>
+                            <option value="0" selected disabled>Seleccionar</option>
+                        </select>
+                        <div><br></div>
+                        <!-- Seleccion Semestre -->
+                        <label for="semestre" class="etiquetas">Semestre:*</label>
+                        <select name="semestre" id="semestre" class="inputs" required>
+                            <option value="0" selected disabled>Seleccionar</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+
+        <h5>( * ) Campos obligatorios</h5>
+        <center>
+            <section id="encuesta">
+                <h4 class="tit_seccion">Encuesta</h4>
+                <table>
+                    <tr id="fila1">
+                        <td class="verificacion" id="Vproveedor"></td>
+                        <td>
+                            <label for="proveedor" class="etiquetas">Sabe ud, ¿Cual es el proveedor del servicio de
+                                internetde la Universidad de Nariño?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="proveedor" id="provedorSi"
+                                    onclick="mostrar('nom_proveedor', 'inp_proveedor'),cambiar_color_celda('Vproveedor1', 'Vproveedor')"
+                                    required>
+                                <label for="proveedorSi" class="etiquetas">Si</label>
+                                <input type="radio" name="proveedor" id="provedorNo"
+                                    onclick="ocultar('nom_proveedor', 'inp_proveedor'),cambiar_color_celda('Vproveedor1', 'Vproveedor')"
+                                    required>
+                                <label for="proveedorNo" class="etiquetas">No</label><br>
+                                <label for="nom_proveedor" class="etiquetas" id="nom_proveedor">¿Cual es?</label>
+                                <input type="text" id="inp_proveedor">
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vproveedor1"></td>
+                    </tr>
+                    <tr id="fila2">
+                        <td class="verificacion" id="Vfrecuencia"></td>
+                        <td>
+                            <label for="frecuencia" class="etiquetas">¿Con que frecuencia (horas) a la semana recibe
+                                clases en el aula de informatica 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="number" id="frecuencia" class="inputs" min="0" max="50" required
+                                    onkeydown=" cambiar_color_celda('Vfrecuencia', 'Vfrecuencia1')">
+                                <label for="frecuencia" class="etiquetas">Horas</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vfrecuencia1"></td>
+                    </tr>
+                    <tr id="fila3">
+                        <td class="verificacion" id="Vcalidad"></td>
+                        <td>
+                            <label for="calidad" class="etiquetas">¿Cómo calificarías la calidad del servicio de
+                                Internet en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="calidad" value="excelente" required
+                                    onclick=" cambiar_color_celda('Vcalidad', 'Vcalidad1')">
+                                <label for="calidad" class="etiquetas">Excelente</label>
+                                <input type="radio" name="calidad" value="bueno" required
+                                    onclick=" cambiar_color_celda('Vcalidad', 'Vcalidad1')">
+                                <label for="calidad" class="etiquetas">Bueno</label><br>
+                                <input type="radio" name="calidad" value="regular" required
+                                    onclick=" cambiar_color_celda('Vcalidad', 'Vcalidad1')">
+                                <label for="calidad" class="etiquetas">Regular</label>
+                                <input type="radio" name="calidad" value="malo" required
+                                    onclick=" cambiar_color_celda('Vcalidad', 'Vcalidad1')">
+                                <label for="calidad" class="etiquetas">Malo</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vcalidad1"></td>
+                    </tr>
+                    <tr id="fila4">
+                        <td class="verificacion" id="Vvelocidad"></td>
+                        <td>
+                            <label for="velocidad" class="etiquetas">¿Cómo describirías la velocidad del servicio de
+                                Internet en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="velocidad" value="rápido" required
+                                    onclick=" cambiar_color_celda('Vvelocidad', 'Vvelocidad1')">
+                                <label for="velocidad" class="etiquetas">Rapido</label>
+                                <input type="radio" name="velocidad" value="aceptable" required
+                                    onclick=" cambiar_color_celda('Vvelocidad', 'Vvelocidad1')">
+                                <label for="velocidad" class="etiquetas">Aceptable</label><br>
+                                <input type="radio" name="velocidad" value="lento" required
+                                    onclick=" cambiar_color_celda('Vvelocidad', 'Vvelocidad1')">
+                                <label for="velocidad" class="etiquetas">Lento</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vvelocidad1"></td>
+                    </tr>
+                    <tr id="fila5">
+                        <td class="verificacion" id="Vconfiabilidad"></td>
+                        <td>
+                            <label for="confiabilidad" class="etiquetas">¿El servicio de Internet en el aula de
+                                informática 3 es confiable?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="confiabilidad" value="sí" required
+                                    onclick="cambiar_color_celda('Vconfiabilidad', 'Vconfiabilidad1')">
+                                <label for="confiabilidad" class="etiquetas">Sí</label>
+                                <input type="radio" name="confiabilidad" value="no" required
+                                    onclick="cambiar_color_celda('Vconfiabilidad', 'Vconfiabilidad1')">
+                                <label for="confiabilidad" class="etiquetas">No</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vconfiabilidad1"></td>
+                    </tr>
+                    <tr id="fila6">
+                        <td class="verificacion" id="Vdesconexiones"></td>
+                        <td>
+                            <label for="desconexiones" class="etiquetas">¿El servicio de Internet en el aula de
+                                informática 3 se desconecta con frecuencia?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="desconexiones" value="sí" required
+                                    onclick="cambiar_color_celda('Vdesconexiones', 'Vdesconexiones1')">
+                                <label for="desconexiones" class="etiquetas">Sí</label>
+                                <input type="radio" name="desconexiones" value="no" required
+                                    onclick="cambiar_color_celda('Vdesconexiones', 'Vdesconexiones1')">
+                                <label for="desconexiones" class="etiquetas">No</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vdesconexiones1"></td>
+                    </tr>
+                    <tr id="fila7">
+                        <td class="verificacion" id="Vfacilidad"></td>
+                        <td>
+                            <label for="facilidad" class="etiquetas">¿El servicio de Internet en el aula de informática
+                                3
+                                es fácil de usar?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="facilidad" value="sí" required
+                                    onclick="cambiar_color_celda('Vfacilidad', 'Vfacilidad1')">
+                                <label for="facilidad" class="etiquetas">Sí</label>
+                                <input type="radio" name="facilidad" value="no" required
+                                    onclick="cambiar_color_celda('Vfacilidad', 'Vfacilidad1')">
+                                <label for="facilidad" class="etiquetas">No</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vfacilidad1"></td>
+                    </tr>
+                    <tr id="fila8">
+                        <td class="verificacion" id="Vconfiguracion"></td>
+                        <td>
+                            <label for="configuracion" class="etiquetas">¿El servicio de Internet en el aula de
+                                informática 3 es fácil de configurar?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="configuracion" value="sí" required
+                                    onclick="cambiar_color_celda('Vconfiguracion', 'Vconfiguracion1')">
+                                <label for="configuracion" class="etiquetas">Sí</label>
+                                <input type="radio" name="configuracion" value="no" required
+                                    onclick="cambiar_color_celda('Vconfiguracion', 'Vconfiguracion1')">
+                                <label for="configuracion" class="etiquetas">No</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vconfiguracion1"></td>
+                    </tr>
+                    <tr id="fila9">
+                        <td class="verificacion" id="Vseguridad"></td>
+                        <td>
+                            <label for="seguridad" class="etiquetas">¿El servicio de Internet en el aula de informática
+                                3
+                                es seguro?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="seguridad" value="sí" required
+                                    onclick="cambiar_color_celda('Vseguridad', 'Vseguridad1')">
+                                <label for="seguridad" class="etiquetas">Sí</label>
+                                <input type="radio" name="seguridad" value="no" required
+                                    onclick="cambiar_color_celda('Vseguridad', 'Vseguridad1')">
+                                <label for="seguridad" class="etiquetas">No</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vseguridad1"></td>
+                    </tr>
+                    <tr id="fila10">
+                        <td class="verificacion" id="Vsoporte"></td>
+                        <td>
+                            <label for="soporte" class="etiquetas">¿Estás satisfecho con el soporte técnico
+                                proporcionado por el servicio de Internet en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="soporte" value="muy_satisfecho" required
+                                    onclick="cambiar_color_celda('Vsoporte', 'Vsoporte1')">
+                                <label for="soporte" class="etiquetas">Muy satisfecho</label>
+                                <input type="radio" name="soporte" value="satisfecho" required
+                                    onclick="cambiar_color_celda('Vsoporte', 'Vsoporte1')">
+                                <label for="soporte" class="etiquetas">Satisfecho</label><br>
+                                <input type="radio" name="soporte" value="insatisfecho" required
+                                    onclick="cambiar_color_celda('Vsoporte', 'Vsoporte1')">
+                                <label for="soporte" class="etiquetas">Insatisfecho</label>
+                                <input type="radio" name="soporte" value="muy_insatisfecho" required
+                                    onclick="cambiar_color_celda('Vsoporte', 'Vsoporte1')">
+                                <label for="soporte" class="etiquetas">Muy insatisfecho </label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vsoporte1"></td>
+                    </tr>
+                    <tr id="fila11">
+                        <td class="verificacion" id="Vwifi"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Cómo describirías la calidad de la señal Wi-Fi en el
+                                aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="wifi" value="excelente" required
+                                    onclick="cambiar_color_celda('Vwifi', 'Vwifi1')">
+                                <label for="wifi" class="etiquetas">Excelente</label>
+                                <input type="radio" name="wifi" value="bueno" required
+                                    onclick="cambiar_color_celda('Vwifi', 'Vwifi1')">
+                                <label for="wifi" class="etiquetas">Bueno</label><br>
+                                <input type="radio" name="wifi" value="regular" required
+                                    onclick="cambiar_color_celda('Vwifi', 'Vwifi1')">
+                                <label for="wifi" class="etiquetas">Regular</label>
+                                <input type="radio" name="wifi" value="malo" required
+                                    onclick="cambiar_color_celda('Vwifi', 'Vwifi1')">
+                                <label for="wifi" class="etiquetas">Malo</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vwifi1"></td>
+                    </tr>
+                    <tr id="fila12">
+                        <td class="verificacion" id="Vrecomendacion"></td>
+                        <td>
+                            <label for="recomendacion" class="etiquetas">¿Recomendarías el servicio de Internet en el
+                                aula de
+                                informática 3 a tus compañeros de clase?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="recomendacion" value="sí" required
+                                    onclick="cambiar_color_celda('Vrecomendacion', 'Vrecomendacion1')">
+                                <label for="recomendacion" class="etiquetas">Sí</label>
+                                <input type="radio" name="recomendacion" value="no" required
+                                    onclick="cambiar_color_celda('Vrecomendacion', 'Vrecomendacion1')">
+                                <label for="recomendacion" class="etiquetas">No</label>
+                                <input type="radio" name="recomendacion" value="tal_vez" required
+                                    onclick="cambiar_color_celda('Vrecomendacion', 'Vrecomendacion1')">
+                                <label for="recomendacion" class="etiquetas">Tal vez</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vrecomendacion1"></td>
+                    </tr>
+                    <tr id="fila13">
+                        <td class="verificacion" id="Vmejora"></td>
+                        <td>
+                            <label for="mejorar" class="etiquetas">¿Te gustaría que se mejorara algún aspecto del
+                                servicio de Internet en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="mejorar" id="mejorarSi"
+                                    onclick="mostrar('lblcual', 'cual'), cambiar_color_celda('Vmejora', 'Vmejora1')"
+                                    required>
+                                <label for="mejorarSi" class="etiquetas">Si</label>
+                                <input type="radio" name="mejorar" id="mejorarNo"
+                                    onclick="ocultar('lblcual', 'cual'), cambiar_color_celda('Vmejora', 'Vmejora1')"
+                                    required>
+                                <label for="mejorarNo" class="etiquetas">No</label><br>
+                                <label for="mejorar" class="etiquetas" id="lblcual">¿Cual?</label>
+                                <input type="text" id="cual">
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vmejora1"></td>
+                    </tr>
+                    <tr id="fila14">
+                        <td class="verificacion" id="Vproductividad"></td>
+                        <td>
+                            <label for="productividad" class="etiquetas">¿El servicio de internet del aula de
+                                informática 3 ha
+                                afectado su productividad académica de alguna manera?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="productividad" id="productividadSi"
+                                    onclick="mostrar('lblcomo', 'como'), cambiar_color_celda('Vproductividad', 'Vproductividad1')"
+                                    required>
+                                <label for="productividadSi" class="etiquetas">Si</label>
+                                <input type="radio" name="productividad" id="productividadNo"
+                                    onclick="ocultar('lblcomo', 'como'), cambiar_color_celda('Vproductividad', 'Vproductividad1')"
+                                    required>
+                                <label for="productividadNo" class="etiquetas">No</label><br>
+                                <label for="productividad" class="etiquetas" id="lblcomo">¿Como?</label>
+                                <!-- <input type="textarea" id="como"> -->
+                                <textarea name="como" id="como" cols="20" rows="2"></textarea>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vproductividad1"></td>
+                    </tr>
+                    <tr id="fila15">
+                        <td class="verificacion" id="Vdisponpc"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Qué tan satisfecho está con la disponibilidad de
+                                computadoras en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="disponpc" value="muy_satisfecho" required
+                                    onclick="cambiar_color_celda('Vdisponpc', 'Vdisponpc1')">
+                                <label for="disponpc" class="etiquetas">Muy satisfecho</label>
+                                <input type="radio" name="disponpc" value="satisfecho" required
+                                    onclick="cambiar_color_celda('Vdisponpc', 'Vdisponpc1')">
+                                <label for="disponpc" class="etiquetas">Satisfecho</label><br>
+                                <input type="radio" name="disponpc" value="insatisfecho" required
+                                    onclick="cambiar_color_celda('Vdisponpc', 'Vdisponpc1')">
+                                <label for="disponpc" class="etiquetas">Insatisfecho</label>
+                                <input type="radio" name="disponpc" value="muy_insatisfecho" required
+                                    onclick="cambiar_color_celda('Vdisponpc', 'Vdisponpc1')">
+                                <label for="disponpc" class="etiquetas">Muy insatisfecho </label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vdisponpc1"></td>
+                    </tr>
+                    <tr id="fila16">
+                        <td class="verificacion" id="Vnecesidades"></td>
+                        <td>
+                            <label for="necesidad" class="etiquetas">¿Considera que el servicio de internet del aula de
+                                informática 3 es adecuado para las necesidades de los estudiantes de la universidad en
+                                general?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="necesidad" id="necesidadSi"
+                                    onclick=" cambiar_color_celda('Vnecesidades', 'Vnecesidades1')" required>
+                                <label for="necesidadSi" class="etiquetas">Si</label>
+                                <input type="radio" name="necesidad" id="necesidadNo"
+                                    onclick=" cambiar_color_celda('Vnecesidades', 'Vnecesidades1')" required>
+                                <label for="necesidadNo" class="etiquetas">No</label><br>
+
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vnecesidades1"></td>
+                    </tr>
+                    <tr id="fila17">
+                        <td class="verificacion" id="Vdescarga"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Cómo calificaría la velocidad de descarga de archivos
+                                en el servicio de internet del aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="descarga" value="excelente" required
+                                    onclick="cambiar_color_celda('Vdescarga', 'Vdescarga1')">
+                                <label for="descarga" class="etiquetas">Excelente</label>
+                                <input type="radio" name="descarga" value="bueno" required
+                                    onclick="cambiar_color_celda('Vdescarga', 'Vdescarga1')">
+                                <label for="descarga" class="etiquetas">Bueno</label><br>
+                                <input type="radio" name="descarga" value="regular" required
+                                    onclick="cambiar_color_celda('Vdescarga', 'Vdescarga1')">
+                                <label for="descarga" class="etiquetas">Regular</label>
+                                <input type="radio" name="descarga" value="malo" required
+                                    onclick="cambiar_color_celda('Vdescarga', 'Vdescarga1')">
+                                <label for="descarga" class="etiquetas">Malo</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vdescarga1"></td>
+                    </tr>
+                    <tr id="fila17">
+                        <td class="verificacion" id="Vcarga"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Cómo calificaría la velocidad de carga de archivos
+                                en el servicio de internet del aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="carga" value="excelente" required
+                                    onclick="cambiar_color_celda('Vcarga', 'Vcarga1')">
+                                <label for="carga" class="etiquetas">Excelente</label>
+                                <input type="radio" name="carga" value="bueno" required
+                                    onclick="cambiar_color_celda('Vcarga', 'Vcarga1')">
+                                <label for="carga" class="etiquetas">Bueno</label><br>
+                                <input type="radio" name="carga" value="regular" required
+                                    onclick="cambiar_color_celda('Vcarga', 'Vcarga1')">
+                                <label for="carga" class="etiquetas">Regular</label>
+                                <input type="radio" name="carga" value="malo" required
+                                    onclick="cambiar_color_celda('Vcarga', 'Vcarga1')">
+                                <label for="carga" class="etiquetas">Malo</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vcarga1"></td>
+                    </tr>
+                    <tr id="fila18">
+                        <td class="verificacion" id="Vsitios"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Ha tenido problemas para acceder a sitios web
+                                específicos en el aula de informática 3?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="sitios" id="sitiosSi"
+                                    onclick=" cambiar_color_celda('Vsitios', 'Vsitios1')" required>
+                                <label for="sitiosSi" class="etiquetas">Si</label>
+                                <input type="radio" name="sitios" id="sitiosNo"
+                                    onclick=" cambiar_color_celda('Vsitios', 'Vsitios1')" required>
+                                <label for="sitiosNo" class="etiquetas">No</label><br>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vsitios1"></td>
+                    </tr>
+                    <tr id="fila19">
+                        <td class="verificacion" id="Vcomparacion"></td>
+                        <td>
+                            <label for="wifi" class="etiquetas">¿Cómo describiría la calidad del servicio de internet
+                                del aula de informatica 3 en
+                                comparación con las otras aulas de informatica?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="comparacion" value="excelente" required
+                                    onclick="cambiar_color_celda('Vcomparacion', 'Vcomparacion1')">
+                                <label for="comparacion" class="etiquetas">Excelente</label>
+                                <input type="radio" name="comparacion" value="bueno" required
+                                    onclick="cambiar_color_celda('Vcomparacion', 'Vcomparacion1')">
+                                <label for="comparacion" class="etiquetas">Bueno</label><br>
+                                <input type="radio" name="comparacion" value="regular" required
+                                    onclick="cambiar_color_celda('Vcomparacion', 'Vcomparacion1')">
+                                <label for="comparacion" class="etiquetas">Regular</label>
+                                <input type="radio" name="comparacion" value="malo" required
+                                    onclick="cambiar_color_celda('Vcomparacion', 'Vcomparacion1')">
+                                <label for="comparacion" class="etiquetas">Malo</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vcomparacion1"></td>
+                    </tr>
+                    <tr id="fila20">
+                        <td class="verificacion" id="Vequipacion"></td>
+                        <td>
+                            <label for="equipacion" class="etiquetas">¿Considera que el aula de informatica 3 se
+                                encuentra bien equipada para brindar un buen servicio?*</label>
+                        </td>
+                        <td>
+                            <center>
+                                <input type="radio" name="equipacion" id="equipacionSi"
+                                    onclick=" cambiar_color_celda('Vequipacion', 'Vequipacion1')" required>
+                                <label for="equipacionSi" class="etiquetas">Si</label>
+                                <input type="radio" name="equipacion" id="equipacionNo"
+                                    onclick=" cambiar_color_celda('Vequipacion', 'Vequipacion1')" required>
+                                <label for="equipacionNo" class="etiquetas">No</label>
+                                <input type="radio" name="equipacion" id="equipacionTalvez"
+                                    onclick=" cambiar_color_celda('Vequipacion', 'Vequipacion1')" required>
+                                <label for="equipacionTalvez" class="etiquetas">Tal vez</label>
+                            </center>
+                        </td>
+                        <td class="verificacion" id="Vequipacion1"></td>
+                    </tr>
+
+
+                </table>
+            </section>
+            <br>
+            <textarea name="" id="" cols="100" rows="5"
+                placeholder="¿Desea realizar algun comentario adicional?"></textarea><br>
+            <input type="submit" value="Enviar" id="enviar">
+        </center>
+
+    </form>
+</body>
+<br><br><br>
+<footer>
+    <center>
+        <div id="final">
+            <!-- Logo Udenar con redireccion a pagina web Udenar -->
+            <a title="Universidad de Nariño" href="https://www.udenar.edu.co" target="_blank"><img
+                    src="https://www.udenar.edu.co/recursos/wp-content/uploads/2021/09/logo-udenar-negro.png"
+                    alt=" Universidad de Nariño" id="imgfinal"></a>
+            <!-- Titulo y subtitulo -->
+            <h1>Universidad de Nariño</h1>
+            <h3>Sede Ipiales</h3>
+        </div>
+    </center>
+</footer>
+
+</html>
